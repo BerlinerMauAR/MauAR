@@ -8,12 +8,12 @@
 
 import UIKit
 import ARKit
-//import ARCL
-//import CoreLocation
+import ARCL
+import CoreLocation
 
 class ViewController: UIViewController {
     @IBOutlet weak var sceneView: ARSCNView!
-//    var sceneLocationView = SceneLocationView()
+    var sceneLocationView = SceneLocationView()
     
     
     override func viewDidLoad() {
