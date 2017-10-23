@@ -1,7 +1,7 @@
 platform :ios, '11.0'
-use_frameworks!
 
 target 'MauAR' do
 	pod 'ARCL'
-	pod 'CocoaLumberjack', '~> 3.3'
+	use_frameworks!
+	pod 'CocoaLumberjack/Swift'
 end
