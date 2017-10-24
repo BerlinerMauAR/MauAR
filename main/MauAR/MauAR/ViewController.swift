@@ -14,23 +14,17 @@ import CoreLocation
 class ViewController: UIViewController {
     @IBOutlet weak var sceneView: ARSCNView!
     var sceneLocationView = SceneLocationView()
-//    let config = ARWorldTrackingConfiguration()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         sceneLocationView.run()
         
         sceneView.addSubview( sceneLocationView )
-//        sceneView.session.run( config )
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         sceneLocationView.frame = sceneView.bounds
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 }
 
