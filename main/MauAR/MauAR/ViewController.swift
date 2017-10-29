@@ -10,6 +10,7 @@ import UIKit
 import ARKit
 import ARCL
 import CoreLocation
+import SceneKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var sceneView: ARSCNView!
@@ -28,6 +29,25 @@ class ViewController: UIViewController {
         let nodeBBTor = LocationAnnotationNode(location: locationBBTor, image: imagePin! )
         
         sceneLocationView.addLocationNodeWithConfirmedLocation( locationNode: nodeBBTor )
+        if let scene = SCNScene(named: "art.scnassets/BerlinWall.scn")
+        {
+            sceneView.scene = scene
+            if let nodeWall = scene.rootNode.childNode(withName: "Wall", recursively: true)
+            {
+            sceneLocationView.scene.rootNode.addChildNode( nodeWall )
+                
+            print("Loaded wall\n")
+            }
+            else{
+                print("Not found name of node")
+            }
+        }
+        else
+        {
+            print( "Wall not loaded\n" )
+        }
+        
+     
     }
 
     override func viewDidLayoutSubviews() {
