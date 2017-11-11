@@ -32,7 +32,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, ARSCNViewDele
         self.locationManager.startUpdatingLocation()
         print( self.locationManager.location?.coordinate )
 
-
         // BBTor = Brandenburger Tor
         //lat - Breite / Verlauf: O-W / Winkel +- Equator
         //long - Länge / Verlauf: N-S / Winkel +- Nullmeridian (Greenwich)
@@ -45,9 +44,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, ARSCNViewDele
         createTestWall()
         sceneLocationView.addLocationNodeWithConfirmedLocation( locationNode: nodeBBTor )
 //        createWall()
-
-
-
     }
 
     private func createTestWall()
@@ -101,5 +97,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, ARSCNViewDele
 //            self.coordinateLable.text = String( coordinate.latitude ) + " : " + String( coordinate.longitude )
 //        }
 //    }
+    func renderer( _ renderer : SCNSceneRenderer, didAdd node : SCNNode, for anchor : ARAnchor )
+    {
+        print("did add")
+    }
 }
 
