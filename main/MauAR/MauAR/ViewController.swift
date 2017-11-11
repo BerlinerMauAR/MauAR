@@ -11,6 +11,7 @@ import ARKit
 import ARCL
 import CoreLocation
 import SceneKit
+import os.log
 
 class ViewController: UIViewController, CLLocationManagerDelegate, ARSCNViewDelegate, ARSessionDelegate
 {
@@ -23,8 +24,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, ARSCNViewDele
     {
         super.viewDidLoad()
 
-        self.sceneView.delegate = self
-        self.sceneView.session.delegate = self
+        self.sceneLocationView.delegate = self
+        self.sceneLocationView.session.delegate = self
         sceneLocationView.run()
         sceneView.addSubview( sceneLocationView )
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -43,6 +44,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate, ARSCNViewDele
 
         sceneLocationView.addLocationNodeWithConfirmedLocation( locationNode: nodeBBTor )
         createWall()
+
+
+        let posInit = SCNVector3( 0, 0, -1 )
+        let myScene = SCNScene( named: "MauerEinfach.scn" )
+        if let mauerNode = myScene?.rootNode.childNode( withName: "MauerEinfach", recursively: true )
+        {
+            mauerNode.position = posInit
+            sceneLocationView.scene.rootNode.addChildNode( mauerNode )
+
+            let ballNode = SCNNode( geometry: SCNSphere( radius: 0.1 ) )
+            sceneLocationView.scene.rootNode.addChildNode( ballNode )
+
+        } else
+        {
+            os_log( "3d file not found", type: .debug )
+        }
+
     }
 
     override func viewDidLayoutSubviews()
@@ -70,17 +88,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, ARSCNViewDele
             print( "Wall not loaded\n" )
         }
     }
-
-//    func session( _ session : ARSession, didUpdate frame : ARFrame )
+    
     func renderer( _ renderer : SCNSceneRenderer, didRenderScene scene : SCNScene, atTime time : TimeInterval )
     {
         if let coordinate = self.locationManager.location?.coordinate
         {
-//            self.coordinateLable.text = String( coordinate.latitude ) + " : " + String( coordinate.longitude )
             self.coordinateLable.text = String( coordinate.latitude ) + " : " + String( coordinate.longitude )
-            print("in")
         }
-        print("out")
     }
 }
 
