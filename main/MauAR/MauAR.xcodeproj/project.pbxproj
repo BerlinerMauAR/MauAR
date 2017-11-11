@@ -8,11 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		4403E286C02F157B15E5F204 /* Pods_MauAR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E4058B2DF7CA1D7CC43A8A0 /* Pods_MauAR.framework */; };
-		DBC7273C1FA241A30071F94E /* Berlin Wall 2nd gen Elements.obj in Resources */ = {isa = PBXBuildFile; fileRef = DBC7273B1FA241A30071F94E /* Berlin Wall 2nd gen Elements.obj */; };
-		DBC7273E1FA241C20071F94E /* Berlin Wall 2nd gen Elements.dae in Resources */ = {isa = PBXBuildFile; fileRef = DBC7273D1FA241C10071F94E /* Berlin Wall 2nd gen Elements.dae */; };
-		DBC727421FA242690071F94E /* Concrete Wall 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DBC7273F1FA242680071F94E /* Concrete Wall 2.jpg */; };
-		DBC727441FA242690071F94E /* Concrete Ring.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DBC727411FA242690071F94E /* Concrete Ring.jpg */; };
-		DBC727461FA244BC0071F94E /* BerlinWall.scn in Resources */ = {isa = PBXBuildFile; fileRef = DBC727451FA243110071F94E /* BerlinWall.scn */; };
+		DB21A77E1FB73C51000D3A04 /* Concrete Ring.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DB21A7791FB73C50000D3A04 /* Concrete Ring.jpg */; };
+		DB21A77F1FB73C51000D3A04 /* Concrete Wall 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DB21A77A1FB73C50000D3A04 /* Concrete Wall 2.jpg */; };
+		DB21A7801FB73C51000D3A04 /* BerlinWall.scn in Resources */ = {isa = PBXBuildFile; fileRef = DB21A77B1FB73C50000D3A04 /* BerlinWall.scn */; };
+		DB21A7811FB73C51000D3A04 /* Berlin Wall 2nd gen Elements.obj in Resources */ = {isa = PBXBuildFile; fileRef = DB21A77C1FB73C50000D3A04 /* Berlin Wall 2nd gen Elements.obj */; };
+		DB21A7821FB73C51000D3A04 /* Berlin Wall 2nd gen Elements.dae in Resources */ = {isa = PBXBuildFile; fileRef = DB21A77D1FB73C51000D3A04 /* Berlin Wall 2nd gen Elements.dae */; };
+		DB21A7851FB74E49000D3A04 /* Concrite Bar.tga in Resources */ = {isa = PBXBuildFile; fileRef = DB21A7831FB74E49000D3A04 /* Concrite Bar.tga */; };
+		DB21A7861FB74E49000D3A04 /* MauerEinfach.dae in Resources */ = {isa = PBXBuildFile; fileRef = DB21A7841FB74E49000D3A04 /* MauerEinfach.dae */; };
+		DB21A7881FB74EAD000D3A04 /* MauerEinfach.scn in Resources */ = {isa = PBXBuildFile; fileRef = DB21A7871FB74EAD000D3A04 /* MauerEinfach.scn */; };
+		DB21A78A1FB76C34000D3A04 /* Stiftung-Berliner-Mauer-f-015066.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DB21A7891FB76C34000D3A04 /* Stiftung-Berliner-Mauer-f-015066.jpg */; };
 		DBCEA7431F9F9E8500E73037 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCEA7421F9F9E8500E73037 /* AppDelegate.swift */; };
 		DBCEA7451F9F9E8500E73037 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCEA7441F9F9E8500E73037 /* ViewController.swift */; };
 		DBCEA7481F9F9E8500E73037 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBCEA7461F9F9E8500E73037 /* Main.storyboard */; };
@@ -25,11 +29,15 @@
 		1346A4B7047802406306F6A8 /* Pods-MauAR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MauAR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MauAR/Pods-MauAR.debug.xcconfig"; sourceTree = "<group>"; };
 		1E4058B2DF7CA1D7CC43A8A0 /* Pods_MauAR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MauAR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		722AA194B9D7C44F6D00711A /* Pods-MauAR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MauAR.release.xcconfig"; path = "Pods/Target Support Files/Pods-MauAR/Pods-MauAR.release.xcconfig"; sourceTree = "<group>"; };
-		DBC7273B1FA241A30071F94E /* Berlin Wall 2nd gen Elements.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Berlin Wall 2nd gen Elements.obj"; sourceTree = "<group>"; };
-		DBC7273D1FA241C10071F94E /* Berlin Wall 2nd gen Elements.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = "Berlin Wall 2nd gen Elements.dae"; sourceTree = "<group>"; };
-		DBC7273F1FA242680071F94E /* Concrete Wall 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Concrete Wall 2.jpg"; sourceTree = "<group>"; };
-		DBC727411FA242690071F94E /* Concrete Ring.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Concrete Ring.jpg"; sourceTree = "<group>"; };
-		DBC727451FA243110071F94E /* BerlinWall.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = BerlinWall.scn; sourceTree = "<group>"; };
+		DB21A7791FB73C50000D3A04 /* Concrete Ring.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Concrete Ring.jpg"; path = "MauAR/Assets/Concrete Ring.jpg"; sourceTree = SOURCE_ROOT; };
+		DB21A77A1FB73C50000D3A04 /* Concrete Wall 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Concrete Wall 2.jpg"; path = "MauAR/Assets/Concrete Wall 2.jpg"; sourceTree = SOURCE_ROOT; };
+		DB21A77B1FB73C50000D3A04 /* BerlinWall.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = BerlinWall.scn; path = MauAR/Assets/BerlinWall.scn; sourceTree = SOURCE_ROOT; };
+		DB21A77C1FB73C50000D3A04 /* Berlin Wall 2nd gen Elements.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Berlin Wall 2nd gen Elements.obj"; path = "MauAR/Assets/Berlin Wall 2nd gen Elements.obj"; sourceTree = SOURCE_ROOT; };
+		DB21A77D1FB73C51000D3A04 /* Berlin Wall 2nd gen Elements.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; name = "Berlin Wall 2nd gen Elements.dae"; path = "MauAR/Assets/Berlin Wall 2nd gen Elements.dae"; sourceTree = SOURCE_ROOT; };
+		DB21A7831FB74E49000D3A04 /* Concrite Bar.tga */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Concrite Bar.tga"; path = "../../../../Assets/models/Concrite Bar.tga"; sourceTree = "<group>"; };
+		DB21A7841FB74E49000D3A04 /* MauerEinfach.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; name = MauerEinfach.dae; path = ../../../../Assets/models/MauerEinfach.dae; sourceTree = "<group>"; };
+		DB21A7871FB74EAD000D3A04 /* MauerEinfach.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = MauerEinfach.scn; path = MauAR/Models/MauerEinfach.scn; sourceTree = SOURCE_ROOT; };
+		DB21A7891FB76C34000D3A04 /* Stiftung-Berliner-Mauer-f-015066.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Stiftung-Berliner-Mauer-f-015066.jpg"; path = "MauAR/Stiftung-Berliner-Mauer-f-015066.jpg"; sourceTree = SOURCE_ROOT; };
 		DBCEA73F1F9F9E8500E73037 /* MauAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MauAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBCEA7421F9F9E8500E73037 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBCEA7441F9F9E8500E73037 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +69,23 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		DB21A7781FB73C2B000D3A04 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				DB21A7891FB76C34000D3A04 /* Stiftung-Berliner-Mauer-f-015066.jpg */,
+				DB21A7831FB74E49000D3A04 /* Concrite Bar.tga */,
+				DB21A7841FB74E49000D3A04 /* MauerEinfach.dae */,
+				DB21A7871FB74EAD000D3A04 /* MauerEinfach.scn */,
+				DB21A77D1FB73C51000D3A04 /* Berlin Wall 2nd gen Elements.dae */,
+				DB21A77C1FB73C50000D3A04 /* Berlin Wall 2nd gen Elements.obj */,
+				DB21A77B1FB73C50000D3A04 /* BerlinWall.scn */,
+				DB21A7791FB73C50000D3A04 /* Concrete Ring.jpg */,
+				DB21A77A1FB73C50000D3A04 /* Concrete Wall 2.jpg */,
+			);
+			name = Assets;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		DBCEA7361F9F9E8500E73037 = {
 			isa = PBXGroup;
 			children = (
@@ -82,15 +107,11 @@
 		DBCEA7411F9F9E8500E73037 /* MauAR */ = {
 			isa = PBXGroup;
 			children = (
+				DB21A7781FB73C2B000D3A04 /* Assets */,
 				DBCEA7421F9F9E8500E73037 /* AppDelegate.swift */,
 				DBCEA7441F9F9E8500E73037 /* ViewController.swift */,
 				DBCEA7461F9F9E8500E73037 /* Main.storyboard */,
 				DBCEA74C1F9F9E8500E73037 /* Assets.xcassets */,
-				DBC7273D1FA241C10071F94E /* Berlin Wall 2nd gen Elements.dae */,
-				DBC7273B1FA241A30071F94E /* Berlin Wall 2nd gen Elements.obj */,
-				DBC727451FA243110071F94E /* BerlinWall.scn */,
-				DBC727411FA242690071F94E /* Concrete Ring.jpg */,
-				DBC7273F1FA242680071F94E /* Concrete Wall 2.jpg */,
 				DBCEA74E1F9F9E8500E73037 /* LaunchScreen.storyboard */,
 				DBCEA7511F9F9E8500E73037 /* Info.plist */,
 				DBCEA7491F9F9E8500E73037 /* MauAR.xcdatamodeld */,
@@ -168,14 +189,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBC7273C1FA241A30071F94E /* Berlin Wall 2nd gen Elements.obj in Resources */,
-				DBC7273E1FA241C20071F94E /* Berlin Wall 2nd gen Elements.dae in Resources */,
 				DBCEA7501F9F9E8500E73037 /* LaunchScreen.storyboard in Resources */,
-				DBC727441FA242690071F94E /* Concrete Ring.jpg in Resources */,
-				DBC727461FA244BC0071F94E /* BerlinWall.scn in Resources */,
-				DBC727421FA242690071F94E /* Concrete Wall 2.jpg in Resources */,
 				DBCEA74D1F9F9E8500E73037 /* Assets.xcassets in Resources */,
+				DB21A7851FB74E49000D3A04 /* Concrite Bar.tga in Resources */,
 				DBCEA7481F9F9E8500E73037 /* Main.storyboard in Resources */,
+				DB21A78A1FB76C34000D3A04 /* Stiftung-Berliner-Mauer-f-015066.jpg in Resources */,
+				DB21A77F1FB73C51000D3A04 /* Concrete Wall 2.jpg in Resources */,
+				DB21A7801FB73C51000D3A04 /* BerlinWall.scn in Resources */,
+				DB21A77E1FB73C51000D3A04 /* Concrete Ring.jpg in Resources */,
+				DB21A7821FB73C51000D3A04 /* Berlin Wall 2nd gen Elements.dae in Resources */,
+				DB21A7881FB74EAD000D3A04 /* MauerEinfach.scn in Resources */,
+				DB21A7861FB74E49000D3A04 /* MauerEinfach.dae in Resources */,
+				DB21A7811FB73C51000D3A04 /* Berlin Wall 2nd gen Elements.obj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

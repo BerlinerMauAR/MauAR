@@ -10,49 +10,98 @@ import UIKit
 import ARKit
 import ARCL
 import CoreLocation
+import SceneKit
+import os.log
 
-class ViewController: UIViewController {
-    @IBOutlet weak var sceneView: ARSCNView!
+class ViewController: UIViewController, CLLocationManagerDelegate, ARSCNViewDelegate, ARSessionDelegate
+{
+    @IBOutlet weak var coordinateLable : UILabel!
+    @IBOutlet weak var sceneView :       ARSCNView!
     var sceneLocationView = SceneLocationView()
-    
-    @IBOutlet weak var pinButton: UIButton!
-    
-    override func viewDidLoad() {
+    lazy private var locationManager = CLLocationManager()
+
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        
+
+//        self.sceneLocationView.delegate = self
+//        self.sceneLocationView.session.delegate = self
         sceneLocationView.run()
         sceneView.addSubview( sceneLocationView )
-        
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.startUpdatingLocation()
+        print( self.locationManager.location?.coordinate )
+
+        // BBTor = Brandenburger Tor
         //lat - Breite / Verlauf: O-W / Winkel +- Equator
         //long - Länge / Verlauf: N-S / Winkel +- Nullmeridian (Greenwich)
-        let coordBBtor = CLLocationCoordinate2D(latitude: 52.516275, longitude: 13.377704)
-        let locationBBTor = CLLocation( coordinate: coordBBtor, altitude: 40 )
-        let imagePin = UIImage(named: "pin")
-        let nodeBBTor = LocationAnnotationNode(location: locationBBTor, image: imagePin! )
-        
+//        let coordBBtor    = CLLocationCoordinate2D( latitude: 52.516275, longitude: 13.377704 )
+        let peterBuro     = CLLocationCoordinate2D( latitude: 52.4968586659359, longitude: 13.4211113941813 )
+        let locationBBTor = CLLocation( coordinate: peterBuro, altitude: 40 )
+//        let imagePin      = UIImage( named: "pin" )
+        let imagePin      = UIImage( named: "Stiftung-Berliner-Mauer-f-015066.jpg" )
+        let nodeBBTor     = LocationAnnotationNode( location: locationBBTor, image: imagePin! )
+        nodeBBTor.scaleRelativeToDistance = true
+
+        createTestWall()
         sceneLocationView.addLocationNodeWithConfirmedLocation( locationNode: nodeBBTor )
-        
-        if let sceneTmp = SCNScene(named: "BerlinWall.scn")
-        {
-            if let nodeWall = sceneTmp.rootNode.childNode( withName: "Wall", recursively: true )
-            {
-                sceneView.scene.rootNode.addChildNode( nodeWall )
-            }
-            else
-            {
-                print("Model name wrong")
-            }
-        }
-        else
-        {
-            print("Model path wrong")
-        }
-        
+//        createWall()
     }
 
-    override func viewDidLayoutSubviews() {
+    private func createTestWall()
+    {
+        let posInit = SCNVector3( 0, 0, -1 )
+        let myScene = SCNScene( named: "MauerEinfach.scn" )
+        if let mauerNode = myScene?.rootNode.childNode( withName: "MauerEinfach", recursively: true )
+        {
+            mauerNode.position = posInit
+            sceneLocationView.scene.rootNode.addChildNode( mauerNode )
+
+            let ballNode = SCNNode( geometry: SCNSphere( radius: 0.1 ) )
+            sceneLocationView.scene.rootNode.addChildNode( ballNode )
+        } else
+        {
+            os_log( "3d file not found", type: .debug )
+        }
+    }
+
+    override func viewDidLayoutSubviews()
+    {
         super.viewDidLayoutSubviews()
         sceneLocationView.frame = sceneView.bounds
     }
+
+    fileprivate func createWall()
+    {
+        if let scene = SCNScene( named: "art.scnassets/BerlinWall.scn" )
+        {
+            sceneView.scene = scene
+            if let nodeWall = scene.rootNode.childNode( withName: "Wall", recursively: true )
+            {
+                sceneLocationView.scene.rootNode.addChildNode( nodeWall )
+
+                print( "Loaded wall\n" )
+            } else
+            {
+                print( "Not found name of node" )
+            }
+        } else
+        {
+            print( "Wall not loaded\n" )
+        }
+    }
+
+//    func renderer( _ renderer : SCNSceneRenderer, didRenderScene scene : SCNScene, atTime time : TimeInterval )
+//    {
+//        if let coordinate = self.locationManager.location?.coordinate
+//        {
+//            self.coordinateLable.text = String( coordinate.latitude ) + " : " + String( coordinate.longitude )
+//        }
+//    }
+//
+//    func renderer( _ renderer : SCNSceneRenderer, didAdd node : SCNNode, for anchor : ARAnchor )
+//    {
+//        print("did add")
+//    }
 }
 
