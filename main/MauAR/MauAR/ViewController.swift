@@ -15,8 +15,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var sceneView: ARSCNView!
     var sceneLocationView = SceneLocationView()
     
+    @IBOutlet weak var pinButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         sceneLocationView.run()
         sceneView.addSubview( sceneLocationView )
         
@@ -28,6 +31,23 @@ class ViewController: UIViewController {
         let nodeBBTor = LocationAnnotationNode(location: locationBBTor, image: imagePin! )
         
         sceneLocationView.addLocationNodeWithConfirmedLocation( locationNode: nodeBBTor )
+        
+        if let sceneTmp = SCNScene(named: "BerlinWall.scn")
+        {
+            if let nodeWall = sceneTmp.rootNode.childNode( withName: "Wall", recursively: true )
+            {
+                sceneView.scene.rootNode.addChildNode( nodeWall )
+            }
+            else
+            {
+                print("Model name wrong")
+            }
+        }
+        else
+        {
+            print("Model path wrong")
+        }
+        
     }
 
     override func viewDidLayoutSubviews() {
