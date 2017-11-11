@@ -35,11 +35,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, ARSCNViewDele
         // BBTor = Brandenburger Tor
         //lat - Breite / Verlauf: O-W / Winkel +- Equator
         //long - Länge / Verlauf: N-S / Winkel +- Nullmeridian (Greenwich)
-        let coordBBtor    = CLLocationCoordinate2D( latitude: 52.516275, longitude: 13.377704 )
-        let locationBBTor = CLLocation( coordinate: coordBBtor, altitude: 40 )
-        let imagePin      = UIImage( named: "pin" )
+//        let coordBBtor    = CLLocationCoordinate2D( latitude: 52.516275, longitude: 13.377704 )
+        let peterBuro     = CLLocationCoordinate2D( latitude: 52.4968586659359, longitude: 13.4211113941813 )
+        let locationBBTor = CLLocation( coordinate: peterBuro, altitude: 40 )
+//        let imagePin      = UIImage( named: "pin" )
+        let imagePin      = UIImage( named: "Stiftung-Berliner-Mauer-f-015066.jpg" )
         let nodeBBTor     = LocationAnnotationNode( location: locationBBTor, image: imagePin! )
-        nodeBBTor.scaleRelativeToDistance = false
+        nodeBBTor.scaleRelativeToDistance = true
 
         createTestWall()
         sceneLocationView.addLocationNodeWithConfirmedLocation( locationNode: nodeBBTor )
@@ -57,7 +59,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, ARSCNViewDele
 
             let ballNode = SCNNode( geometry: SCNSphere( radius: 0.1 ) )
             sceneLocationView.scene.rootNode.addChildNode( ballNode )
-
         } else
         {
             os_log( "3d file not found", type: .debug )
@@ -97,9 +98,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, ARSCNViewDele
 //            self.coordinateLable.text = String( coordinate.latitude ) + " : " + String( coordinate.longitude )
 //        }
 //    }
-    func renderer( _ renderer : SCNSceneRenderer, didAdd node : SCNNode, for anchor : ARAnchor )
-    {
-        print("did add")
-    }
+//
+//    func renderer( _ renderer : SCNSceneRenderer, didAdd node : SCNNode, for anchor : ARAnchor )
+//    {
+//        print("did add")
+//    }
 }
 

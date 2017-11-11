@@ -10,6 +10,7 @@ import Foundation
 import ARKit
 import CoreLocation
 import MapKit
+import os.log
 
 public protocol SceneLocationViewDelegate: class
 {
@@ -541,55 +542,57 @@ public class SceneLocationView: ARSCNView, ARSCNViewDelegate
     {
         if anchor is ARPlaneAnchor
         {
+
             let planeAnchor = anchor as! ARPlaneAnchor  //downcast anchor type
-            let plane       = SCNPlane( width: CGFloat( planeAnchor.extent.x ), height: CGFloat( planeAnchor.extent.z ) ) //Z not Y
-            let planeNode   = SCNNode()
+            print( planeAnchor.center )
+            print( node.position )
 
-            planeNode.position = SCNVector3( planeAnchor.center.x, 0, planeAnchor.center.z )
-            planeNode.transform = SCNMatrix4MakeRotation( -Float.pi / 2, 1, 0, 0 )
 
-            plane.firstMaterial?.diffuse.contents = UIColor( red: 1, green: 1, blue: 1, alpha: 0.8 )
-//            let gridMaterial = SCNMaterial()
-//            gridMaterial.diffuse.contents = UIImage( named: "art.scnassets/grid.png" )
-//            plane.materials = [ gridMaterial ]
 
-            planeNode.geometry = plane
-            node.addChildNode( planeNode )
-            print("Plane Anchor added")
+            let myScene = SCNScene( named: "MauerEinfach.scn" )
+            if let mauerNode = myScene?.rootNode.childNode( withName: "MauerEinfach", recursively: true )
+            {
+                mauerNode.position = SCNVector3( planeAnchor.center.x, 0, planeAnchor.center.z )
+                node.addChildNode( mauerNode )
+                os_log( "Wall added", type: .debug )
+            } else
+            {
+                os_log( "3d file not found", type: .debug )
+            }
         }
     }
 
-public func sessionWasInterrupted( _ session : ARSession )
-{
-    print( "session was interrupted" )
-}
-
-public func sessionInterruptionEnded( _ session : ARSession )
-{
-    print( "session interruption ended" )
-}
-
-public func session( _ session : ARSession, didFailWithError error : Error )
-{
-    print( "session did fail with error: \( error )" )
-}
-
-public func session( _ session : ARSession, cameraDidChangeTrackingState camera : ARCamera )
-{
-    switch camera.trackingState
+    public func sessionWasInterrupted( _ session : ARSession )
     {
-        case .limited( .insufficientFeatures ):
-            print( "camera did change tracking state: limited, insufficient features" )
-        case .limited( .excessiveMotion ):
-            print( "camera did change tracking state: limited, excessive motion" )
-        case .limited( .initializing ):
-            print( "camera did change tracking state: limited, initializing" )
-        case .normal:
-            print( "camera did change tracking state: normal" )
-        case .notAvailable:
-            print( "camera did change tracking state: not available" )
+        print( "session was interrupted" )
     }
-}
+
+    public func sessionInterruptionEnded( _ session : ARSession )
+    {
+        print( "session interruption ended" )
+    }
+
+    public func session( _ session : ARSession, didFailWithError error : Error )
+    {
+        print( "session did fail with error: \( error )" )
+    }
+
+    public func session( _ session : ARSession, cameraDidChangeTrackingState camera : ARCamera )
+    {
+        switch camera.trackingState
+        {
+            case .limited( .insufficientFeatures ):
+                print( "camera did change tracking state: limited, insufficient features" )
+            case .limited( .excessiveMotion ):
+                print( "camera did change tracking state: limited, excessive motion" )
+            case .limited( .initializing ):
+                print( "camera did change tracking state: limited, initializing" )
+            case .normal:
+                print( "camera did change tracking state: normal" )
+            case .notAvailable:
+                print( "camera did change tracking state: not available" )
+        }
+    }
 
 }
 
