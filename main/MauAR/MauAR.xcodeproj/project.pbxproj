@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		4403E286C02F157B15E5F204 /* Pods_MauAR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E4058B2DF7CA1D7CC43A8A0 /* Pods_MauAR.framework */; };
-		DB019F671FA1415300366EBC /* Berlin Wall 2nd gen Elements.dae in Resources */ = {isa = PBXBuildFile; fileRef = DB019F661FA1415300366EBC /* Berlin Wall 2nd gen Elements.dae */; };
-		DB019F691FA141A400366EBC /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = DB019F681FA141A300366EBC /* art.scnassets */; };
-		DB7CCAF11FA147B600B20B4B /* BerlinWall.scn in Resources */ = {isa = PBXBuildFile; fileRef = DB7CCAF01FA147B600B20B4B /* BerlinWall.scn */; };
+		DB21A77E1FB73C51000D3A04 /* Concrete Ring.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DB21A7791FB73C50000D3A04 /* Concrete Ring.jpg */; };
+		DB21A77F1FB73C51000D3A04 /* Concrete Wall 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DB21A77A1FB73C50000D3A04 /* Concrete Wall 2.jpg */; };
+		DB21A7801FB73C51000D3A04 /* BerlinWall.scn in Resources */ = {isa = PBXBuildFile; fileRef = DB21A77B1FB73C50000D3A04 /* BerlinWall.scn */; };
+		DB21A7811FB73C51000D3A04 /* Berlin Wall 2nd gen Elements.obj in Resources */ = {isa = PBXBuildFile; fileRef = DB21A77C1FB73C50000D3A04 /* Berlin Wall 2nd gen Elements.obj */; };
+		DB21A7821FB73C51000D3A04 /* Berlin Wall 2nd gen Elements.dae in Resources */ = {isa = PBXBuildFile; fileRef = DB21A77D1FB73C51000D3A04 /* Berlin Wall 2nd gen Elements.dae */; };
 		DBCEA7431F9F9E8500E73037 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCEA7421F9F9E8500E73037 /* AppDelegate.swift */; };
 		DBCEA7451F9F9E8500E73037 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCEA7441F9F9E8500E73037 /* ViewController.swift */; };
 		DBCEA7481F9F9E8500E73037 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBCEA7461F9F9E8500E73037 /* Main.storyboard */; };
@@ -23,9 +25,11 @@
 		1346A4B7047802406306F6A8 /* Pods-MauAR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MauAR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MauAR/Pods-MauAR.debug.xcconfig"; sourceTree = "<group>"; };
 		1E4058B2DF7CA1D7CC43A8A0 /* Pods_MauAR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MauAR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		722AA194B9D7C44F6D00711A /* Pods-MauAR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MauAR.release.xcconfig"; path = "Pods/Target Support Files/Pods-MauAR/Pods-MauAR.release.xcconfig"; sourceTree = "<group>"; };
-		DB019F661FA1415300366EBC /* Berlin Wall 2nd gen Elements.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; name = "Berlin Wall 2nd gen Elements.dae"; path = "_NotIncluded/Berlin Wall 2nd gen Elements.dae"; sourceTree = SOURCE_ROOT; };
-		DB019F681FA141A300366EBC /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = SOURCE_ROOT; };
-		DB7CCAF01FA147B600B20B4B /* BerlinWall.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = BerlinWall.scn; path = art.scnassets/BerlinWall.scn; sourceTree = SOURCE_ROOT; };
+		DB21A7791FB73C50000D3A04 /* Concrete Ring.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Concrete Ring.jpg"; path = "MauAR/Assets/Concrete Ring.jpg"; sourceTree = SOURCE_ROOT; };
+		DB21A77A1FB73C50000D3A04 /* Concrete Wall 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Concrete Wall 2.jpg"; path = "MauAR/Assets/Concrete Wall 2.jpg"; sourceTree = SOURCE_ROOT; };
+		DB21A77B1FB73C50000D3A04 /* BerlinWall.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = BerlinWall.scn; path = MauAR/Assets/BerlinWall.scn; sourceTree = SOURCE_ROOT; };
+		DB21A77C1FB73C50000D3A04 /* Berlin Wall 2nd gen Elements.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Berlin Wall 2nd gen Elements.obj"; path = "MauAR/Assets/Berlin Wall 2nd gen Elements.obj"; sourceTree = SOURCE_ROOT; };
+		DB21A77D1FB73C51000D3A04 /* Berlin Wall 2nd gen Elements.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; name = "Berlin Wall 2nd gen Elements.dae"; path = "MauAR/Assets/Berlin Wall 2nd gen Elements.dae"; sourceTree = SOURCE_ROOT; };
 		DBCEA73F1F9F9E8500E73037 /* MauAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MauAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBCEA7421F9F9E8500E73037 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBCEA7441F9F9E8500E73037 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +61,19 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		DB21A7781FB73C2B000D3A04 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				DB21A77D1FB73C51000D3A04 /* Berlin Wall 2nd gen Elements.dae */,
+				DB21A77C1FB73C50000D3A04 /* Berlin Wall 2nd gen Elements.obj */,
+				DB21A77B1FB73C50000D3A04 /* BerlinWall.scn */,
+				DB21A7791FB73C50000D3A04 /* Concrete Ring.jpg */,
+				DB21A77A1FB73C50000D3A04 /* Concrete Wall 2.jpg */,
+			);
+			name = Assets;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		DBCEA7361F9F9E8500E73037 = {
 			isa = PBXGroup;
 			children = (
@@ -78,9 +95,7 @@
 		DBCEA7411F9F9E8500E73037 /* MauAR */ = {
 			isa = PBXGroup;
 			children = (
-				DB7CCAF01FA147B600B20B4B /* BerlinWall.scn */,
-				DB019F681FA141A300366EBC /* art.scnassets */,
-				DB019F661FA1415300366EBC /* Berlin Wall 2nd gen Elements.dae */,
+				DB21A7781FB73C2B000D3A04 /* Assets */,
 				DBCEA7421F9F9E8500E73037 /* AppDelegate.swift */,
 				DBCEA7441F9F9E8500E73037 /* ViewController.swift */,
 				DBCEA7461F9F9E8500E73037 /* Main.storyboard */,
@@ -162,12 +177,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB7CCAF11FA147B600B20B4B /* BerlinWall.scn in Resources */,
 				DBCEA7501F9F9E8500E73037 /* LaunchScreen.storyboard in Resources */,
 				DBCEA74D1F9F9E8500E73037 /* Assets.xcassets in Resources */,
-				DB019F691FA141A400366EBC /* art.scnassets in Resources */,
-				DB019F671FA1415300366EBC /* Berlin Wall 2nd gen Elements.dae in Resources */,
 				DBCEA7481F9F9E8500E73037 /* Main.storyboard in Resources */,
+				DB21A77F1FB73C51000D3A04 /* Concrete Wall 2.jpg in Resources */,
+				DB21A7801FB73C51000D3A04 /* BerlinWall.scn in Resources */,
+				DB21A77E1FB73C51000D3A04 /* Concrete Ring.jpg in Resources */,
+				DB21A7821FB73C51000D3A04 /* Berlin Wall 2nd gen Elements.dae in Resources */,
+				DB21A7811FB73C51000D3A04 /* Berlin Wall 2nd gen Elements.obj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
