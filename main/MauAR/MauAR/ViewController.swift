@@ -24,8 +24,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, ARSCNViewDele
     {
         super.viewDidLoad()
 
-        self.sceneLocationView.delegate = self
-        self.sceneLocationView.session.delegate = self
+//        self.sceneLocationView.delegate = self
+//        self.sceneLocationView.session.delegate = self
         sceneLocationView.run()
         sceneView.addSubview( sceneLocationView )
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -42,10 +42,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, ARSCNViewDele
         let nodeBBTor     = LocationAnnotationNode( location: locationBBTor, image: imagePin! )
         nodeBBTor.scaleRelativeToDistance = false
 
+        createTestWall()
         sceneLocationView.addLocationNodeWithConfirmedLocation( locationNode: nodeBBTor )
-        createWall()
+//        createWall()
 
 
+
+    }
+
+    private func createTestWall()
+    {
         let posInit = SCNVector3( 0, 0, -1 )
         let myScene = SCNScene( named: "MauerEinfach.scn" )
         if let mauerNode = myScene?.rootNode.childNode( withName: "MauerEinfach", recursively: true )
@@ -60,7 +66,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, ARSCNViewDele
         {
             os_log( "3d file not found", type: .debug )
         }
-
     }
 
     override func viewDidLayoutSubviews()
@@ -88,13 +93,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, ARSCNViewDele
             print( "Wall not loaded\n" )
         }
     }
-    
-    func renderer( _ renderer : SCNSceneRenderer, didRenderScene scene : SCNScene, atTime time : TimeInterval )
-    {
-        if let coordinate = self.locationManager.location?.coordinate
-        {
-            self.coordinateLable.text = String( coordinate.latitude ) + " : " + String( coordinate.longitude )
-        }
-    }
+
+//    func renderer( _ renderer : SCNSceneRenderer, didRenderScene scene : SCNScene, atTime time : TimeInterval )
+//    {
+//        if let coordinate = self.locationManager.location?.coordinate
+//        {
+//            self.coordinateLable.text = String( coordinate.latitude ) + " : " + String( coordinate.longitude )
+//        }
+//    }
 }
 
