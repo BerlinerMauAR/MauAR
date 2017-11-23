@@ -94,6 +94,11 @@
 			isa = PBXProject;
 			attributes = {
 				ORGANIZATIONNAME = "Peter Kolski";
+				TargetAttributes = {
+					D0BE131B98D45CF518B0D855 = {
+						DevelopmentTeam = V3L42CY5K4;
+					};
+				};
 			};
 			buildConfigurationList = D0BE170191A2DA58367D5113 /* Build configuration list for PBXProject "MauAR_Demo" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -269,6 +274,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = V3L42CY5K4;
 				INFOPLIST_FILE = MauAR_Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bildpeter.MauAR-Demo";
@@ -282,6 +288,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = V3L42CY5K4;
 				INFOPLIST_FILE = MauAR_Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bildpeter.MauAR-Demo";
@@ -310,6 +317,7 @@
 				D0BE16155AF8229D3484FAEC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
