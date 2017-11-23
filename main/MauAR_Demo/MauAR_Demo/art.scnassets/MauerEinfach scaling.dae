@@ -7,8 +7,8 @@
             <comments>https://www.cheetah3d.com</comments>
             <copyright>Unknown</copyright>
         </contributor>
-        <created>2017-11-23T11:54:35Z</created>
-        <modified>2017-11-23T11:54:35Z</modified>
+        <created>2017-11-23T12:07:56Z</created>
+        <modified>2017-11-23T12:07:56Z</modified>
         <unit name="centimeter" meter="0.01"/>
         <up_axis>Y_UP</up_axis>
     </asset>
@@ -791,14 +791,14 @@
     <library_visual_scenes>
         <visual_scene id="RootNode" name="RootNode">
             <node id="ID22190528" sid="ID22190528" name="Camera_1">
-                <matrix sid="matrix">0.990268 -0.032489 0.135328 8.303581 0.000000 0.972370 0.233445 52.326294 -0.139173 -0.231174 0.962907 110.747948 0.000000 0.000000 0.000000 1.000000</matrix>
+                <matrix sid="matrix">0.999048 -0.008696 0.042744 0.164082 0.000000 0.979925 0.199368 2.903874 -0.043619 -0.199178 0.978992 6.369995 0.000000 0.000000 0.000000 1.000000</matrix>
                 <instance_camera url="#ID22190528-persp"/>
             </node>
             <node id="ID21106288" sid="ID21106288" name="Camera">
                 <matrix sid="matrix">0.201143 0.118482 0.972370 -34.725071 -0.507538 0.861629 0.000000 126.076935 -0.837822 -0.493515 0.233445 147.957947 0.000000 0.000000 0.000000 1.000000</matrix>
             </node>
             <node id="ID18996144" sid="ID18996144" name="MauerEinfach">
-                <matrix sid="matrix">0.999998 0.000000 0.000000 0.000000 0.000000 0.623562 0.000000 0.000000 0.000000 0.000000 0.999998 0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+                <matrix sid="matrix">0.069999 0.000000 0.000000 0.000000 0.000000 0.038000 0.000000 0.000000 0.000000 0.000000 0.049999 0.000000 0.000000 0.000000 0.000000 1.000000</matrix>
                 <instance_geometry url="#ID18996144-mesh">
                     <bind_material>
                         <technique_common>
