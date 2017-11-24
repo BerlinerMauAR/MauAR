@@ -87,9 +87,11 @@ class ViewController: UIViewController, ARSCNViewDelegate
                                                            transform.z )
 
                     var coordPhoto = worldCoordinateTouch
+                    coordPhoto.x += -1.0
                     coordPhoto.y += 1.4
+                    coordPhoto.z += 2
                     drawPicture( position: coordPhoto )
-//                    drawWall( position: worldCoordinateTouch )
+                    drawWall( position: worldCoordinateTouch )
 
                 // --- hide all helper planes
                     for node in horizontalHelperNodes_
