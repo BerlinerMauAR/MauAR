@@ -15,6 +15,7 @@ class ViewController: UIViewController, ARSCNViewDelegate
 
     @IBOutlet var sceneView : ARSCNView!
     private var mauerNode_ = SCNNode()
+    private var photoNode_ = SCNNode()
     var planeNode_        = SCNNode()
     var isShownMainObject = false
 
@@ -109,26 +110,48 @@ class ViewController: UIViewController, ARSCNViewDelegate
                 if !isShownMainObject  //TODO shorter syntax
                 {
                     isShownMainObject = true
-                    let scene = SCNScene( named: "art.scnassets/MauerEinfach scaling copy.scn" )!
-                    if let node = scene.rootNode.childNode( withName: "MauerEinfach", recursively: true )
-                    {
-                        mauerNode_ = node
-                    } else
-                    {
-                        print( "No wall found" )
-                    }
-
                     let transform            = hitResult.worldTransform.columns.3
                     let worldCoordinateTouch = SCNVector3( transform.x,
                                                            transform.y,
                                                            transform.z )
 
-                    mauerNode_.position = worldCoordinateTouch
-                    sceneView.scene.rootNode.addChildNode( mauerNode_ )
-                    print( "Touch - Plane World Coord \( worldCoordinateTouch )" )
+                    drawWall( position: worldCoordinateTouch )
+                    drawPicture(position: worldCoordinateTouch )
                 }
             }
         }
     }
 
+    private func drawWall( position : SCNVector3 )
+    {
+        let scene = SCNScene( named: "art.scnassets/MauerEinfach scaling copy.scn" )!
+        if let node = scene.rootNode.childNode( withName: "MauerEinfach", recursively: true )
+        {
+            mauerNode_ = node
+        } else
+        {
+            print( "No wall found" )
+        }
+
+        mauerNode_.position = position
+        sceneView.scene.rootNode.addChildNode( mauerNode_ )
+        print( "Touch - Plane World Coord \( position )" )
+    }
+
+
+    private func drawPicture( position : SCNVector3 )
+    {
+        let scene = SCNScene( named: "art.scnassets/MauerEinfach scaling copy.scn" )!
+        if let node = scene.rootNode.childNode( withName: "MauerEinfach", recursively: true )
+        {
+            mauerNode_ = node
+        } else
+        {
+            print( "No wall found" )
+        }
+
+        mauerNode_.position = position
+        sceneView.scene.rootNode.addChildNode( mauerNode_ )
+        print( "Touch - Plane World Coord \( position )" )
+    }
 }
