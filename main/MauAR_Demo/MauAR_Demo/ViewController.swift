@@ -16,8 +16,9 @@ class ViewController: UIViewController, ARSCNViewDelegate
     @IBOutlet var sceneView : ARSCNView!
     private var mauerNode_ = SCNNode()
     private var photoNode_ = SCNNode()
-    var planeNode_        = SCNNode()
-    var isShownMainObject = false
+    var planeNode_                = SCNNode()
+    var isWallCreated_            = false
+    var floorNodes_ : [ SCNNode ] = []
 
     override func viewDidLoad()
     {
@@ -79,7 +80,7 @@ class ViewController: UIViewController, ARSCNViewDelegate
 
     func renderer( _ renderer : SCNSceneRenderer, didAdd node : SCNNode, for anchor : ARAnchor )
     {
-        if !isShownMainObject
+        if !isWallCreated_
         {
             if anchor is ARPlaneAnchor
             {
@@ -110,9 +111,9 @@ class ViewController: UIViewController, ARSCNViewDelegate
 
             if let hitResult = resultsPlane.first
             {
-                if !isShownMainObject
+                if !isWallCreated_
                 {
-                    isShownMainObject = true
+                    isWallCreated_ = true
                     let transform            = hitResult.worldTransform.columns.3
                     let worldCoordinateTouch = SCNVector3( transform.x,
                                                            transform.y,
