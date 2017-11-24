@@ -115,8 +115,10 @@ class ViewController: UIViewController, ARSCNViewDelegate
                                                            transform.y,
                                                            transform.z )
 
-                    drawWall( position: worldCoordinateTouch )
-                    drawPicture(position: worldCoordinateTouch )
+//                    drawWall( position: worldCoordinateTouch )
+                    var coordPhoto           = worldCoordinateTouch
+                    coordPhoto.y += 1.0
+                    drawPicture( position: coordPhoto )
                 }
             }
         }
@@ -141,17 +143,29 @@ class ViewController: UIViewController, ARSCNViewDelegate
 
     private func drawPicture( position : SCNVector3 )
     {
-        let scene = SCNScene( named: "art.scnassets/MauerEinfach scaling copy.scn" )!
-        if let node = scene.rootNode.childNode( withName: "MauerEinfach", recursively: true )
+        if let scene = SCNScene( named: "Pfeil.dae" )
         {
-            mauerNode_ = node
+            if let node = scene.rootNode.childNode( withName: "Pfeil", recursively: true )
+            {
+                photoNode_.name = "Foto mit Pfeil"
+                photoNode_ = node
+            } else
+            {
+                print( "No pfeil node found" )
+            }
         } else
         {
-            print( "No wall found" )
+            print( "Could not load Pfeil" )
         }
 
-        mauerNode_.position = position
-        sceneView.scene.rootNode.addChildNode( mauerNode_ )
-        print( "Touch - Plane World Coord \( position )" )
+        let moveUp = SCNAction.move( by: SCNVector3( 0, 0.2, 0 ), duration: 0.5 )
+        let moveDown = SCNAction.move( by: SCNVector3( 0, -0.2, 0 ), duration: 0.5 )
+        moveUp.timingMode = .easeOut
+        moveDown.timingMode = .easeIn
+        let zappel = SCNAction.repeatForever( SCNAction.sequence( [ moveUp, moveDown ] ) )
+
+        photoNode_.runAction( zappel )
+        photoNode_.position = position
+        sceneView.scene.rootNode.addChildNode( photoNode_ )
     }
 }
