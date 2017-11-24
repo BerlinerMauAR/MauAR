@@ -143,12 +143,15 @@ class ViewController: UIViewController, ARSCNViewDelegate
 
     private func drawPicture( position : SCNVector3 )
     {
+        photoNode_.name = "Foto mit Pfeil"
+
         if let scene = SCNScene( named: "Pfeil.dae" )
         {
             if let node = scene.rootNode.childNode( withName: "Pfeil", recursively: true )
             {
-                photoNode_.name = "Foto mit Pfeil"
-                photoNode_ = node
+                //TODO set higher hight
+                node.position.y += 0.2
+                photoNode_.addChildNode( node )
             } else
             {
                 print( "No pfeil node found" )
@@ -158,7 +161,9 @@ class ViewController: UIViewController, ARSCNViewDelegate
             print( "Could not load Pfeil" )
         }
 
-        let moveUp = SCNAction.move( by: SCNVector3( 0, 0.2, 0 ), duration: 0.5 )
+
+
+        let moveUp   = SCNAction.move( by: SCNVector3( 0, 0.2, 0 ), duration: 0.5 )
         let moveDown = SCNAction.move( by: SCNVector3( 0, -0.2, 0 ), duration: 0.5 )
         moveUp.timingMode = .easeOut
         moveDown.timingMode = .easeIn

@@ -14,6 +14,7 @@
 		D0BE1E303AA8A9F4D8DB6017 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BE16DF9100A98CA1536E11 /* ViewController.swift */; };
 		D0BE1F93DF13B052B6CB4A86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BE1011064C91BA54498175 /* AppDelegate.swift */; };
 		DBB1E3BC1FC886430082C60A /* Pfeil.dae in Resources */ = {isa = PBXBuildFile; fileRef = DBB1E3BB1FC886430082C60A /* Pfeil.dae */; };
+		DBB1E3BE1FC889290082C60A /* Stiftung-Berliner-Mauer-f-021026.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DBB1E3BD1FC889290082C60A /* Stiftung-Berliner-Mauer-f-021026.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +26,8 @@
 		D0BE1CF7AA62163A114B02F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D0BE1DFB98E03E7555B2D01A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		D0BE1E4354E31FD02BB34212 /* MauAR_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MauAR_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DBB1E3BB1FC886430082C60A /* Pfeil.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; name = Pfeil.dae; path = Assets/Pfeil.dae; sourceTree = SOURCE_ROOT; };
+		DBB1E3BB1FC886430082C60A /* Pfeil.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; name = Pfeil.dae; path = MauAR_Demo/Assets/Pfeil.dae; sourceTree = SOURCE_ROOT; };
+		DBB1E3BD1FC889290082C60A /* Stiftung-Berliner-Mauer-f-021026.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Stiftung-Berliner-Mauer-f-021026.jpg"; path = "MauAR_Demo/Assets/Stiftung-Berliner-Mauer-f-021026.jpg"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,7 +49,7 @@
 				D0BE13DD164D0271F97B03F1 /* LaunchScreen.storyboard */,
 				D0BE1011064C91BA54498175 /* AppDelegate.swift */,
 				D0BE1B8B889D38488A2E83A2 /* Main.storyboard */,
-				DBB1E3BB1FC886430082C60A /* Pfeil.dae */,
+				DBB1E3BF1FC8892F0082C60A /* Assets */,
 				D0BE1670EE3524654456111A /* art.scnassets */,
 				D0BE16DF9100A98CA1536E11 /* ViewController.swift */,
 			);
@@ -68,6 +70,15 @@
 				D0BE16C0147482AC3959C98F /* Products */,
 				D0BE133103503D44F1110C2F /* MauAR_Demo */,
 			);
+			sourceTree = "<group>";
+		};
+		DBB1E3BF1FC8892F0082C60A /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				DBB1E3BB1FC886430082C60A /* Pfeil.dae */,
+				DBB1E3BD1FC889290082C60A /* Stiftung-Berliner-Mauer-f-021026.jpg */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +137,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0BE1660BD1BDF8AD33E09AE /* Assets.xcassets in Resources */,
+				DBB1E3BE1FC889290082C60A /* Stiftung-Berliner-Mauer-f-021026.jpg in Resources */,
 				D0BE1891E076CC61D887A781 /* LaunchScreen.storyboard in Resources */,
 				DBB1E3BC1FC886430082C60A /* Pfeil.dae in Resources */,
 				D0BE17F219B5EF15CFDA2FFE /* Main.storyboard in Resources */,
