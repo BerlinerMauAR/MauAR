@@ -16,6 +16,7 @@ class ViewController: UIViewController, ARSCNViewDelegate
     @IBOutlet var sceneView : ARSCNView!
     private var mauerNode_ = SCNNode()
     var planeNode_ = SCNNode()
+    var isShownMainObject = false
 
     override func viewDidLoad()
     {
@@ -23,16 +24,6 @@ class ViewController: UIViewController, ARSCNViewDelegate
         sceneView.delegate = self
         sceneView.showsStatistics = true
         sceneView.debugOptions = [ ARSCNDebugOptions.showFeaturePoints ]
-
-        let scene = SCNScene( named: "art.scnassets/MauerEinfach scaling copy.scn" )!
-        if let node = scene.rootNode.childNode( withName: "MauerEinfach", recursively: true )
-        {
-            mauerNode_ = node
-        }
-
-        mauerNode_.position = SCNVector3( 0, -2.5, -2.0 )
-
-        sceneView.scene = scene
     }
 
     override func viewWillAppear( _ animated : Bool )
@@ -105,4 +96,24 @@ class ViewController: UIViewController, ARSCNViewDelegate
             node.addChildNode( planeNode_ ) //Node created when plane is found
         }
     }
+
+    override func touchesBegan( _ touches : Set<UITouch>, with event : UIEvent? )
+    {
+        if let touch = touches.first
+        {
+            let touchLocation = touch.location( in: sceneView )
+            let resultsPlane  = sceneView.hitTest( touchLocation, types: .existingPlaneUsingExtent )
+
+            if let hitResult = resultsPlane.first
+            {
+
+                if !isShownMainObject  //TODO shorter syntax
+                {
+//                    isShownMainObject = true
+                    print( "Touch - Plane World Coord \( hitResult.worldTransform.columns.3 )" )
+                }
+            }
+        }
+    }
+
 }
