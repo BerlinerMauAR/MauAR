@@ -15,12 +15,14 @@ class ViewController: UIViewController, ARSCNViewDelegate
 
     @IBOutlet var sceneView : ARSCNView!
     private var mauerNode_ = SCNNode()
+    var planeNode_ = SCNNode()
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
         sceneView.delegate = self
         sceneView.showsStatistics = true
+        sceneView.debugOptions = [ ARSCNDebugOptions.showFeaturePoints ]
 
         let scene = SCNScene( named: "art.scnassets/MauerEinfach scaling copy.scn" )!
         if let node = scene.rootNode.childNode( withName: "MauerEinfach", recursively: true )
@@ -36,7 +38,10 @@ class ViewController: UIViewController, ARSCNViewDelegate
     override func viewWillAppear( _ animated : Bool )
     {
         super.viewWillAppear( animated )
+        sceneView.autoenablesDefaultLighting = true
+
         let configuration = ARWorldTrackingConfiguration()
+        configuration.planeDetection = .horizontal
         sceneView.session.run( configuration )
     }
 
@@ -78,5 +83,26 @@ class ViewController: UIViewController, ARSCNViewDelegate
     {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
 
+    }
+
+    func renderer( _ renderer : SCNSceneRenderer, didAdd node : SCNNode, for anchor : ARAnchor )
+    {
+        if anchor is ARPlaneAnchor
+        {
+            let planeAnchor = anchor as! ARPlaneAnchor  //downcast anchor type
+            let planeGeom   = SCNPlane( width: CGFloat( planeAnchor.extent.x ),
+                                        height: CGFloat( planeAnchor.extent.z ) ) //NOTE! Z not Y
+            planeNode_ = SCNNode( geometry: planeGeom )
+            planeNode_.name = "Plane horizontal detected"
+
+            planeNode_.transform = SCNMatrix4MakeRotation( -Float.pi / 2, 1, 0, 0 ) // make horizontal
+            planeNode_.position = SCNVector3( planeAnchor.center.x, 0, planeAnchor.center.z ) // y = 0
+            print( "Anchor found in: " )
+            print( planeNode_.position )
+            planeNode_.geometry?.firstMaterial?.diffuse.contents = UIColor( red: 0, green: 0, blue: 0, alpha: 0.3 )
+            planeNode_.geometry?.firstMaterial?.isDoubleSided = true
+
+            node.addChildNode( planeNode_ ) //Node created when plane is found
+        }
     }
 }
