@@ -17,8 +17,8 @@ class ViewController: UIViewController, ARSCNViewDelegate
     private var mauerNode_ = SCNNode()
     private var photoNode_ = SCNNode()
 //    var planeNode                 = SCNNode()
-    var isWallCreated_            = false
-    var floorNodes_ : [ SCNNode ] = []
+    var isWallCreated_                       = false
+    var horizontalHelperNodes_ : [ SCNNode ] = []
 
     override func viewDidLoad()
     {
@@ -87,7 +87,7 @@ class ViewController: UIViewController, ARSCNViewDelegate
                 let planeAnchor = anchor as! ARPlaneAnchor  //downcast anchor type
                 let planeGeom   = SCNPlane( width: CGFloat( planeAnchor.extent.x ),
                                             height: CGFloat( planeAnchor.extent.z ) ) //NOTE! Z not Y
-                let planeNode = SCNNode( geometry: planeGeom )
+                let planeNode   = SCNNode( geometry: planeGeom )
                 planeNode.name = "Plane horizontal detected"
 
                 planeNode.transform = SCNMatrix4MakeRotation( -Float.pi / 2, 1, 0, 0 ) // make horizontal
@@ -98,6 +98,7 @@ class ViewController: UIViewController, ARSCNViewDelegate
                 planeNode.geometry?.firstMaterial?.isDoubleSided = true
 
                 node.addChildNode( planeNode ) //Node created when plane is found
+                horizontalHelperNodes_.append( planeNode )
             }
         }
     }
@@ -119,10 +120,16 @@ class ViewController: UIViewController, ARSCNViewDelegate
                                                            transform.y,
                                                            transform.z )
 
-//                    drawWall( position: worldCoordinateTouch )
-                    var coordPhoto           = worldCoordinateTouch
+                    var coordPhoto = worldCoordinateTouch
                     coordPhoto.y += 1.4
                     drawPicture( position: coordPhoto )
+//                    drawWall( position: worldCoordinateTouch )
+
+                // --- hide all helper planes
+                    for node in horizontalHelperNodes_
+                    {
+                        node.isHidden = true
+                    }
                 }
             }
         }
