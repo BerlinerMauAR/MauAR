@@ -108,7 +108,7 @@ class ViewController: UIViewController, ARSCNViewDelegate
             {
                 if !isShownMainObject  //TODO shorter syntax
                 {
-//                    isShownMainObject = true
+                    isShownMainObject = true
                     let scene = SCNScene( named: "art.scnassets/MauerEinfach scaling copy.scn" )!
                     if let node = scene.rootNode.childNode( withName: "MauerEinfach", recursively: true )
                     {
