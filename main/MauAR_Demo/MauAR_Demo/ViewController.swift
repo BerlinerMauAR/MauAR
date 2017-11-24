@@ -117,7 +117,7 @@ class ViewController: UIViewController, ARSCNViewDelegate
 
 //                    drawWall( position: worldCoordinateTouch )
                     var coordPhoto           = worldCoordinateTouch
-                    coordPhoto.y += 1.0
+                    coordPhoto.y += 1.4
                     drawPicture( position: coordPhoto )
                 }
             }
@@ -145,13 +145,28 @@ class ViewController: UIViewController, ARSCNViewDelegate
     {
         photoNode_.name = "Foto mit Pfeil"
 
+        let planeHeight : CGFloat = 0.2
+        let photoPlane            = SCNNode( geometry: SCNPlane( width: 0.3, height: planeHeight ) )
+        let photoPlaneBack        = SCNNode( geometry: SCNPlane( width: 0.3, height: planeHeight ) )
+        photoPlane.geometry?.firstMaterial?.diffuse.contents = UIImage( named: "Stiftung-Berliner-Mauer-f-021026.jpg" )
+        photoPlaneBack.geometry?.firstMaterial?.diffuse.contents = UIColor.black
+        photoPlaneBack.eulerAngles.y = Float.pi //Turn around
+        photoPlaneBack.position.z -= 0.0001
+
         if let scene = SCNScene( named: "Pfeil.dae" )
         {
-            if let node = scene.rootNode.childNode( withName: "Pfeil", recursively: true )
+            if let pfeilNode = scene.rootNode.childNode( withName: "Pfeil", recursively: true )
             {
                 //TODO set higher hight
-                node.position.y += 0.2
-                photoNode_.addChildNode( node )
+                pfeilNode.position.y += Float( planeHeight ) / 2
+                let moveUp   = SCNAction.move( by: SCNVector3( 0, 0.2, 0 ), duration: 0.5 )
+                let moveDown = SCNAction.move( by: SCNVector3( 0, -0.2, 0 ), duration: 0.5 )
+                moveUp.timingMode = .easeOut
+                moveDown.timingMode = .easeIn
+                let zappel = SCNAction.repeatForever( SCNAction.sequence( [ moveUp, moveDown ] ) )
+                pfeilNode.runAction( zappel )
+
+                photoNode_.addChildNode( pfeilNode )
             } else
             {
                 print( "No pfeil node found" )
@@ -161,16 +176,9 @@ class ViewController: UIViewController, ARSCNViewDelegate
             print( "Could not load Pfeil" )
         }
 
-
-
-        let moveUp   = SCNAction.move( by: SCNVector3( 0, 0.2, 0 ), duration: 0.5 )
-        let moveDown = SCNAction.move( by: SCNVector3( 0, -0.2, 0 ), duration: 0.5 )
-        moveUp.timingMode = .easeOut
-        moveDown.timingMode = .easeIn
-        let zappel = SCNAction.repeatForever( SCNAction.sequence( [ moveUp, moveDown ] ) )
-
-        photoNode_.runAction( zappel )
         photoNode_.position = position
+        photoNode_.addChildNode( photoPlane )
+        photoNode_.addChildNode( photoPlaneBack )
         sceneView.scene.rootNode.addChildNode( photoNode_ )
     }
 }
