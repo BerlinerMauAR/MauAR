@@ -79,22 +79,25 @@ class ViewController: UIViewController, ARSCNViewDelegate
 
     func renderer( _ renderer : SCNSceneRenderer, didAdd node : SCNNode, for anchor : ARAnchor )
     {
-        if anchor is ARPlaneAnchor
+        if !isShownMainObject
         {
-            let planeAnchor = anchor as! ARPlaneAnchor  //downcast anchor type
-            let planeGeom   = SCNPlane( width: CGFloat( planeAnchor.extent.x ),
-                                        height: CGFloat( planeAnchor.extent.z ) ) //NOTE! Z not Y
-            planeNode_ = SCNNode( geometry: planeGeom )
-            planeNode_.name = "Plane horizontal detected"
+            if anchor is ARPlaneAnchor
+            {
+                let planeAnchor = anchor as! ARPlaneAnchor  //downcast anchor type
+                let planeGeom   = SCNPlane( width: CGFloat( planeAnchor.extent.x ),
+                                            height: CGFloat( planeAnchor.extent.z ) ) //NOTE! Z not Y
+                planeNode_ = SCNNode( geometry: planeGeom )
+                planeNode_.name = "Plane horizontal detected"
 
-            planeNode_.transform = SCNMatrix4MakeRotation( -Float.pi / 2, 1, 0, 0 ) // make horizontal
-            planeNode_.position = SCNVector3( planeAnchor.center.x, 0, planeAnchor.center.z ) // y = 0
-            print( "Anchor found in: " )
-            print( planeNode_.position )
-            planeNode_.geometry?.firstMaterial?.diffuse.contents = UIColor( red: 0, green: 0, blue: 0, alpha: 0.3 )
-            planeNode_.geometry?.firstMaterial?.isDoubleSided = true
+                planeNode_.transform = SCNMatrix4MakeRotation( -Float.pi / 2, 1, 0, 0 ) // make horizontal
+                planeNode_.position = SCNVector3( planeAnchor.center.x, 0, planeAnchor.center.z ) // y = 0
+                print( "Anchor found in: " )
+                print( planeNode_.position )
+                planeNode_.geometry?.firstMaterial?.diffuse.contents = UIColor( red: 0, green: 0, blue: 0, alpha: 0.3 )
+                planeNode_.geometry?.firstMaterial?.isDoubleSided = true
 
-            node.addChildNode( planeNode_ ) //Node created when plane is found
+                node.addChildNode( planeNode_ ) //Node created when plane is found
+            }
         }
     }
 
@@ -107,7 +110,7 @@ class ViewController: UIViewController, ARSCNViewDelegate
 
             if let hitResult = resultsPlane.first
             {
-                if !isShownMainObject  //TODO shorter syntax
+                if !isShownMainObject
                 {
                     isShownMainObject = true
                     let transform            = hitResult.worldTransform.columns.3
@@ -157,7 +160,6 @@ class ViewController: UIViewController, ARSCNViewDelegate
         {
             if let pfeilNode = scene.rootNode.childNode( withName: "Pfeil", recursively: true )
             {
-                //TODO set higher hight
                 pfeilNode.position.y += Float( planeHeight ) / 2
                 let moveUp   = SCNAction.move( by: SCNVector3( 0, 0.2, 0 ), duration: 0.5 )
                 let moveDown = SCNAction.move( by: SCNVector3( 0, -0.2, 0 ), duration: 0.5 )
