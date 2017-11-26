@@ -14,8 +14,9 @@ class ViewController: UIViewController, ARSCNViewDelegate
 {
 
     @IBOutlet var sceneView : ARSCNView!
-    private var mauerNode_ = SCNNode()
-    private var photoNode_ = SCNNode()
+    private var mauerNode_    = SCNNode()
+    private var photoNode_    = SCNNode()
+    private var infoTextNode_ = SCNNode()
 //    var planeNode                 = SCNNode()
     var isWallCreated_                       = false
     var horizontalHelperNodes_ : [ SCNNode ] = []
@@ -75,6 +76,7 @@ class ViewController: UIViewController, ARSCNViewDelegate
         {
             let touchLocation = touch.location( in: sceneView )
             let resultsPlane  = sceneView.hitTest( touchLocation, types: .existingPlaneUsingExtent )
+            let resultsAll    = sceneView.hitTest( touchLocation )
 
             if let hitResult = resultsPlane.first
             {
@@ -93,11 +95,22 @@ class ViewController: UIViewController, ARSCNViewDelegate
                     drawPicture( position: coordPhoto )
                     drawWall( position: worldCoordinateTouch )
 
-                // --- hide all helper planes
+                    // --- hide all helper planes
                     for node in horizontalHelperNodes_
                     {
                         node.isHidden = true
                     }
+                }
+            }
+
+            if let hitResultFirst = resultsAll.first
+            {
+                if let name = hitResultFirst.node.name
+                {
+                    print( "Name: \( name )" )
+                } else
+                {
+                    print( "No name of this object" )
                 }
             }
         }
@@ -127,7 +140,9 @@ class ViewController: UIViewController, ARSCNViewDelegate
         let planeHeight : CGFloat = 0.2
         let photoPlane            = SCNNode( geometry: SCNPlane( width: 0.3, height: planeHeight ) )
         let photoPlaneBack        = SCNNode( geometry: SCNPlane( width: 0.3, height: planeHeight ) )
+        photoPlane.name = "Foto"
         photoPlane.geometry?.firstMaterial?.diffuse.contents = UIImage( named: "Stiftung-Berliner-Mauer-f-021026.jpg" )
+        photoPlaneBack.name = "Background"
         photoPlaneBack.geometry?.firstMaterial?.diffuse.contents = UIColor.black
         photoPlaneBack.eulerAngles.y = Float.pi //Turn around
         photoPlaneBack.position.z -= 0.0001
@@ -136,6 +151,7 @@ class ViewController: UIViewController, ARSCNViewDelegate
         {
             if let pfeilNode = scene.rootNode.childNode( withName: "Pfeil", recursively: true )
             {
+                pfeilNode.name = "Pfeil"
                 pfeilNode.position.y += Float( planeHeight ) / 2
                 let moveUp   = SCNAction.move( by: SCNVector3( 0, 0.2, 0 ), duration: 0.5 )
                 let moveDown = SCNAction.move( by: SCNVector3( 0, -0.2, 0 ), duration: 0.5 )
