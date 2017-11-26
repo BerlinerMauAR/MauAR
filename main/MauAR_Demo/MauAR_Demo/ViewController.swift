@@ -109,15 +109,32 @@ class ViewController: UIViewController, ARSCNViewDelegate
                 if let name = hitResultFirst.node.name
                 {
                     // --- switch
-                    if name == "Info"
+                    if ( name == "Info" ) || ( name == "Foto" )
                     {
+                        let fadeDuration = 0.2
+                        let fadeIn       = SCNAction.fadeIn( duration: fadeDuration )
+                        let fadeOut      = SCNAction.fadeOut( duration: fadeDuration )
+                        let moveIn       = SCNAction.move( to: SCNVector3( 0, 0, 0.03 ), duration: fadeDuration )
+                        let moveOut      = SCNAction.move( to: SCNVector3( 0, 0, 0.0 ), duration: fadeDuration )
+                        let scaleIn      = SCNAction.scale( to: 1.0, duration: fadeDuration )
+                        let scaleOut     = SCNAction.scale( to: 0.3, duration: fadeDuration )
+                        fadeIn.timingMode = .easeOut
+                        moveIn.timingMode = .easeOut
+                        scaleIn.timingMode = .easeOut
+                        fadeOut.timingMode = .easeIn
+                        moveOut.timingMode = .easeIn
+                        scaleOut.timingMode = .easeIn
+
+                        let appear = SCNAction.group( [ fadeIn, moveIn, scaleIn ] )
+                        let disappear = SCNAction.group( [ fadeOut, moveOut, scaleOut ] )
+
                         if isInfoHidden_
                         {
-                            infoTextNode_.geometry?.firstMaterial?.transparency = 0.0
+                            infoTextNode_.runAction( appear )
                             print( "Info : an" )
                         } else
                         {
-                            infoTextNode_.geometry?.firstMaterial?.transparency = 1.0
+                            infoTextNode_.runAction( disappear )
                             print( "Info : aus" )
                         }
 
@@ -156,7 +173,7 @@ class ViewController: UIViewController, ARSCNViewDelegate
 
         let planeHeight : CGFloat = 0.2
         let photoPlane            = SCNNode( geometry: SCNPlane( width: 0.3, height: planeHeight ) )
-        let photoPlaneBack = SCNNode( geometry: SCNPlane( width: 0.3, height: planeHeight ) )
+        let photoPlaneBack        = SCNNode( geometry: SCNPlane( width: 0.3, height: planeHeight ) )
         photoPlane.name = "Foto"
         photoPlane.geometry?.firstMaterial?.diffuse.contents = UIImage( named: "Stiftung-Berliner-Mauer-f-021026.jpg" )
         photoPlaneBack.name = "Background"
@@ -166,9 +183,13 @@ class ViewController: UIViewController, ARSCNViewDelegate
 
         infoTextNode_ = SCNNode( geometry: SCNPlane( width: 0.3, height: planeHeight ) )
         infoTextNode_.name = "Info"
-        infoTextNode_.position.z += 0.03
+//        infoTextNode_.position.z += 0.03
+        infoTextNode_.simdScale *= 0.3
         infoTextNode_.geometry?.firstMaterial?.diffuse.contents = UIImage( named: "InfoOverlay.png" )
         infoTextNode_.geometry?.firstMaterial?.transparency = 1.0
+        infoTextNode_.geometry?.firstMaterial?.isDoubleSided = true
+        infoTextNode_.runAction( SCNAction.fadeOut( duration: 0 ) )
+
 
         if let scene = SCNScene( named: "Pfeil.dae" )
         {
