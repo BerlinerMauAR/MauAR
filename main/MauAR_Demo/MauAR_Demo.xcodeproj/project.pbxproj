@@ -15,6 +15,7 @@
 		D0BE1F93DF13B052B6CB4A86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BE1011064C91BA54498175 /* AppDelegate.swift */; };
 		DBB1E3BC1FC886430082C60A /* Pfeil.dae in Resources */ = {isa = PBXBuildFile; fileRef = DBB1E3BB1FC886430082C60A /* Pfeil.dae */; };
 		DBB1E3BE1FC889290082C60A /* Stiftung-Berliner-Mauer-f-021026.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DBB1E3BD1FC889290082C60A /* Stiftung-Berliner-Mauer-f-021026.jpg */; };
+		DBCDE7A11FCB1F480059CFAA /* InfoOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = DBCDE7A01FCB1F480059CFAA /* InfoOverlay.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		D0BE1E4354E31FD02BB34212 /* MauAR_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MauAR_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBB1E3BB1FC886430082C60A /* Pfeil.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; name = Pfeil.dae; path = MauAR_Demo/Assets/Pfeil.dae; sourceTree = SOURCE_ROOT; };
 		DBB1E3BD1FC889290082C60A /* Stiftung-Berliner-Mauer-f-021026.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Stiftung-Berliner-Mauer-f-021026.jpg"; path = "MauAR_Demo/Assets/Stiftung-Berliner-Mauer-f-021026.jpg"; sourceTree = SOURCE_ROOT; };
+		DBCDE7A01FCB1F480059CFAA /* InfoOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InfoOverlay.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			children = (
 				DBB1E3BB1FC886430082C60A /* Pfeil.dae */,
 				DBB1E3BD1FC889290082C60A /* Stiftung-Berliner-Mauer-f-021026.jpg */,
+				DBCDE7A01FCB1F480059CFAA /* InfoOverlay.png */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 				DBB1E3BC1FC886430082C60A /* Pfeil.dae in Resources */,
 				D0BE17F219B5EF15CFDA2FFE /* Main.storyboard in Resources */,
 				D0BE1DE83E563AA9A41FECBF /* art.scnassets in Resources */,
+				DBCDE7A11FCB1F480059CFAA /* InfoOverlay.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

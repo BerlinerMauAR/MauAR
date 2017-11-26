@@ -19,6 +19,7 @@ class ViewController: UIViewController, ARSCNViewDelegate
     private var infoTextNode_ = SCNNode()
 //    var planeNode                 = SCNNode()
     var isWallCreated_                       = false
+    var isInfoHidden_                        = true
     var horizontalHelperNodes_ : [ SCNNode ] = []
 
     override func viewDidLoad()
@@ -107,6 +108,22 @@ class ViewController: UIViewController, ARSCNViewDelegate
             {
                 if let name = hitResultFirst.node.name
                 {
+                    // --- switch
+                    if name == "Info"
+                    {
+                        if isInfoHidden_
+                        {
+                            infoTextNode_.geometry?.firstMaterial?.transparency = 0.0
+                            print( "Info : an" )
+                        } else
+                        {
+                            infoTextNode_.geometry?.firstMaterial?.transparency = 1.0
+                            print( "Info : aus" )
+                        }
+
+                        isInfoHidden_ = !isInfoHidden_
+                    }
+
                     print( "Name: \( name )" )
                 } else
                 {
@@ -139,13 +156,19 @@ class ViewController: UIViewController, ARSCNViewDelegate
 
         let planeHeight : CGFloat = 0.2
         let photoPlane            = SCNNode( geometry: SCNPlane( width: 0.3, height: planeHeight ) )
-        let photoPlaneBack        = SCNNode( geometry: SCNPlane( width: 0.3, height: planeHeight ) )
+        let photoPlaneBack = SCNNode( geometry: SCNPlane( width: 0.3, height: planeHeight ) )
         photoPlane.name = "Foto"
         photoPlane.geometry?.firstMaterial?.diffuse.contents = UIImage( named: "Stiftung-Berliner-Mauer-f-021026.jpg" )
         photoPlaneBack.name = "Background"
         photoPlaneBack.geometry?.firstMaterial?.diffuse.contents = UIColor.black
         photoPlaneBack.eulerAngles.y = Float.pi //Turn around
         photoPlaneBack.position.z -= 0.0001
+
+        infoTextNode_ = SCNNode( geometry: SCNPlane( width: 0.3, height: planeHeight ) )
+        infoTextNode_.name = "Info"
+        infoTextNode_.position.z += 0.03
+        infoTextNode_.geometry?.firstMaterial?.diffuse.contents = UIImage( named: "InfoOverlay.png" )
+        infoTextNode_.geometry?.firstMaterial?.transparency = 1.0
 
         if let scene = SCNScene( named: "Pfeil.dae" )
         {
@@ -173,6 +196,7 @@ class ViewController: UIViewController, ARSCNViewDelegate
         photoNode_.position = position
         photoNode_.addChildNode( photoPlane )
         photoNode_.addChildNode( photoPlaneBack )
+        photoNode_.addChildNode( infoTextNode_ )
         sceneView.scene.rootNode.addChildNode( photoNode_ )
     }
 }
