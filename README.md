@@ -10,3 +10,9 @@ All models with the A9 processor and up:
 - iPhone SE, 6s, 6s Plus, 7, 7plus 8, 8 plus, X
 - "The iPad" (2017)
 - all iPad Pro
+
+# Teilnehmer
+- Jörg Reichert
+- Maimi von Mirbach
+- Gottfried von Recum
+- [Peter Kolski](https://github.com/BildPeter)
