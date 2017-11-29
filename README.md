@@ -6,7 +6,6 @@ Berlin wall rebuild: Augmented Reality App for iOS
 
 Das Projekt wurde im Rahmen von [Coding Da Vinci](https://codingdavinci.de) erstellt. Vielen Dank für die Möglichkeit und Unterstützung.
 
-Code für die App: https://github.com/BerlinerMauAR/MauAR
 
 Website: [MauAR.de](http://mauar.de)
 
