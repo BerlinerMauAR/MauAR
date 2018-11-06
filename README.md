@@ -17,7 +17,7 @@ All models with the A9 processor and up:
 - iPad Pro 12.9" (2017), iPad Pro 10.5", iPad Pro 12.9" (2015)
 
 # Teilnehmer
-- [Peter Kolski](https://github.com/BildPeter) - App Entwicklung
+- [Peter Kolski](http://www.peterkolski.com) - App Entwicklung
 - [Jörg Reichert](https://github.com/orgs/BerlinerMauAR/people/joergreichert) - Backend Entwicklung
 - Maimi von Mirbach - Design UI / UX
 - [Gottfried von Recum](https://github.com/orgs/BerlinerMauAR/people/GvRecum)
