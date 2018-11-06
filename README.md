@@ -7,7 +7,7 @@ Berlin wall rebuild: Augmented Reality App for iOS
 Das Projekt wurde im Rahmen von [Coding Da Vinci](https://codingdavinci.de) erstellt. Vielen Dank für die Möglichkeit und Unterstützung.
 
 
-Website: [MauAR.de](http://mauar.de)
+Website: [mauAR.berlin](http://mauar.berlin)
 
 # Runs on iPhone & iPad
 All models with the A9 processor and up:
@@ -20,4 +20,4 @@ All models with the A9 processor and up:
 - [Peter Kolski](https://github.com/BildPeter) - App Entwicklung
 - [Jörg Reichert](https://github.com/orgs/BerlinerMauAR/people/joergreichert) - Backend Entwicklung
 - Maimi von Mirbach - Design UI / UX
-- [Gottfried von Recum](https://github.com/orgs/BerlinerMauAR/people/GvRecum) - Entwicklung
+- [Gottfried von Recum](https://github.com/orgs/BerlinerMauAR/people/GvRecum)
